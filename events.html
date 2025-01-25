@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Olympic Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, #e6f7ff);
+            color: #333;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: #004aad;
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 1rem;
+        }
+
+        .event-content h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.5rem;
+            color: #004aad;
+        }
+
+        .event-content p {
+            margin: 0;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+        }
+.hh{
+    color: #004aad;
+}
+    .hh:hover {
+    color: #ffcc00;
+    transition: width 0.3s ease-in-out;
+}
+
+header {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,51,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Adding ::before and ::after for underline effect */
+nav ul li a::before,
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a::after {
+    left: auto;
+    right: 0;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+footer {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+  min-width: 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #f5c518;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.social-icons a:hover {
+  color: #f5c518;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 2px 0;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: rgba(2, 0, 36, 0.95);
+    padding: 20px 0;
+  }
+
+  nav .nav-menu.show {
+    display: flex;
+    z-index: 999;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  /* Animate hamburger menu */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Olympics Website</h1>
+        <div class="menu-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="active" >Home</a></li>
+            <li><a href="athletes.html">Athletes</a></li>
+              <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html" >Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html" >About-Us</a></li>
+            <li><a href="contact.html" >Contact</a></li>
+    
+          </ul>
+        </nav>
+      </header>
+<br>
+    <h1 class="hh">Summer Events In Olympics</h1>
+    <div class="events-container">
+        <!-- Summer Games -->
+        <div class="event-card">
+            <img src="https://images.squarespace-cdn.com/content/v1/551b7247e4b04e2cba1e41ce/1696306155257-93OF7KRMDCU89XY3BR1G/image-asset.jpeg" alt="Swimming">
+            <div class="event-content">
+                <h2>Swimming </h2>
+                <p>Experience the speed and grace of top swimmers competing in freestyle, backstroke, breaststroke, and
+                    butterfly events.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://royalcollege.lk/wp-content/uploads/2021/07/Athletics-the-season_-e1625805532295.jpg" alt="Athletics">
+            <div class="event-content">
+                <h2>Athletics </h2>
+                <p>Witness the pinnacle of human performance in track and field events, including sprints, long-distance
+                    runs, and high jumps.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5808x3267+0+0/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F1b%2F69%2F5d02f713445ebe022639e03516ce%2Fgettyimages-2166327337.jpg" alt="Basketball">
+            <div class="event-content">
+                <h2>Basketball </h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://www.fisu.net/app/uploads/2023/10/zhang_boheng_of_team_china_is_in_competition.jpg" alt="Gymnastics ">
+            <div class="event-content">
+                <h2>Gymnastics </h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://allianceurology.com/wp-content/uploads/2020/11/image1.jpg" alt="Cycling">
+            <div class="event-content">
+                <h2>Cycling </h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+        <div class="event-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg" alt="Football (Soccer)">
+            <div class="event-content">
+                <h2>Football (Soccer)</h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://cdn.prod.website-files.com/66842e04d18971242a294872/66ce328510ff67207c078698_11.png" alt="Tennis">
+            <div class="event-content">
+                <h2>Tennis</h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Harvard_Rowing_Crew_at_Henley_2004_-2.JPG" alt="Rowing">
+            <div class="event-content">
+                <h2>Rowing (Summer)</h2>
+                <p>Enjoy the fast-paced action as teams compete for supremacy in one of the most popular sports in the
+                    world.</p>
+            </div>
+        </div>
+    </div>
+
+<br>
+<h1 class="hh">Winter Events In Olympics</h1>
+    <div class="events-container">
+        <!-- Winter Games -->
+        <div class="event-card">
+            <img src="https://images.ctfassets.net/0wjmk6wgfops/nb3Q0W8VmjzthrOMiSzPt/6b8bf6ccb00141d84d32829455d073a9/Skier_resize_AdobeStock_617199939.jpeg?q=70" alt="Skiing">
+            <div class="event-content">
+                <h2>Skiing </h2>
+                <p>Marvel at the skill and endurance of skiers racing down slopes and through challenging courses in
+                    alpine and cross-country skiing.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN5rTBE2X3rPZpje3ozvNtTi_C01uplMBXeQ&s" alt="Figure Skating">
+            <div class="event-content">
+                <h2>Figure Skating</h2>
+                <p>Be captivated by the artistry and athleticism of figure skaters performing breathtaking routines on
+                    ice.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://static.wixstatic.com/media/0b16c2_1e4cc53fe67344d095cffc04a102d779~mv2.jpg/v1/fill/w_640,h_436,al_b,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0b16c2_1e4cc53fe67344d095cffc04a102d779~mv2.jpg" alt="Ice Hockey">
+            <div class="event-content">
+                <h2>Ice Hockey </h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://milanocortina2026.olympics.com/s3fs-public/styles/webp_convertion/public/images/2024-11/bobsleight.jpeg.webp?VersionId=I4.8igVf2zWUkzIqQFuYlXu4FqEDpZc4&itok=UmDfK1tA" alt="Bobsleigh">
+            <div class="event-content">
+                <h2>Bobsleigh</h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ-RqyUt2je7-PBfUNhxdyIlFYFe-Is9p7Hw&s" alt="Curling ">
+            <div class="event-content">
+                <h2>Curling </h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://www.citizen-times.com/gcdn/presto/2022/01/20/PFTC/736638dc-c403-4596-9aee-b5f51501dfa7-USATSI_10632929_168394621_lowres.jpg?crop=2558,1439,x0,y0&width=2558&height=1439&format=pjpg&auto=webp" alt="Biathlon">
+            <div class="event-content">
+                <h2>Biathlon </h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://www.worldskate.org/images/discipline/medium/Speed_14.09-39.jpg" alt="Speed Skating">
+            <div class="event-content">
+                <h2>Speed Skating </h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://www.sportscoverdirect.com/wp-content/uploads/2023/12/Snowboarding-off-piste-2.jpg" alt="Snowboarding">
+            <div class="event-content">
+                <h2>Snowboarding</h2>
+                <p>Feel the excitement as teams battle it out on the ice in one of the most thrilling Winter Olympic
+                    sports.</p>
+            </div>
+        </div>
+
+    </div>
+
+    
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="">Games</a></li>
+          <li><a href="RecordStatic.html">Records</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="athletes.html">Athletes</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Summer Olympics</a></li>
+          <li><a href="#">Winter Olympics</a></li>
+          <li><a href="#">Paralympics</a></li>
+          <li><a href="#">Youth Olympics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect With Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Olympics Website. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

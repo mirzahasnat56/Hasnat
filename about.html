@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/about.css">
+  <title>About Us - Olympics</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+}
+
+.active{
+    color: #f5c518;
+    position: relative;
+  }
+
+  nav ul li .active::before, nav ul li .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+
+  header {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,51,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+a {
+    /* text-decoration: none; */
+    cursor: default;
+    
+    
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+
+  /* Hover Effect */
+  nav ul li a:hover {
+    color: #ffcc00;
+  }
+
+  /* Adding ::before and ::after for underline effect */
+  nav ul li a::before, nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+
+  nav ul li a::after {
+    left: auto;
+    right: 0;
+  }
+
+  nav ul li a:hover::before, nav ul li a:hover::after {
+    width: 100%;
+  }
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2rem;
+    }
+
+    nav ul {
+      flex-direction: column;
+      background: #005cbf;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      display: none;
+    }
+
+    nav ul.show {
+      display: flex;
+    }
+
+    nav a {
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+  }
+  footer {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+  min-width: 250px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #f5c518;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.social-icons a:hover {
+  color: #f5c518;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+    display: flex;
+  }
+}
+
+  /* Responsive Design */
+  @media (max-width: 562px) {
+    header {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    .hero {
+      height: 200px;
+    }
+
+    .card div {
+      flex: 1 1 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 1rem;
+    }
+
+    .hero {
+      height: 150px;
+      font-size: 0.9rem;
+    }
+
+    .card div {
+      padding: 0.5rem;
+    }
+
+    footer {
+      padding: 0.5rem;
+    }
+  }
+
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  color: #0056b3;
+  /* color: white; */
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Cards Section */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 15px;
+}
+
+.card-text h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #2193b0;
+}
+
+.card-text p {
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 2px 0;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: rgba(2, 0, 36, 0.95);
+    padding: 20px 0;
+  }
+
+  nav .nav-menu.show {
+    display: flex;
+    z-index: 999;
+    text-align: center;
+
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  /* Animate hamburger menu */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/*  */
+@media (max-width: 562px) {
+    header {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        height: 200px;
+    }
+
+    .card div {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem;
+    }
+
+    .hero {
+        height: 150px;
+        font-size: 0.9rem;
+    }
+
+    .card div {
+        padding: 0.5rem;
+    }
+
+    footer {
+        padding: 0.5rem;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.4s;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      padding: 1rem;
+    }
+  
+    .menu-toggle {
+      display: flex;
+    }
+  
+    nav .nav-menu {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      background: rgba(2, 0, 36, 0.95);
+      padding: 20px 0;
+    }
+  
+    nav .nav-menu.show {
+      display: flex;
+      z-index: 999;
+    }
+  
+    nav ul li {
+      margin: 15px 0;
+    }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Olympics Website</h1>
+    <div class="menu-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html"  >Home</a></li>
+        <li><a href="athletes.html">Athletes</a></li>
+          <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html" >Gallery</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="about.html" class="active">About-Us</a></li>
+        <li><a href="contact.html" >Contact</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <h2>Welcome to the Olympics</h2>
+    <p>The celebration of excellence, unity, and inspiration.</p>
+  </section>
+
+  <section class="content">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://assets.editorial.aetnd.com/uploads/2012/08/firstolympicsmyths.jpg" alt="Olympics History">
+      </div>
+      <div class="card-text">
+        <h3>Our History</h3>
+        <p>The Olympics have united nations through sports for over a century. Learn about our rich history and iconic moments.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <img src="https://www.2020games.metro.tokyo.lg.jp/images/vision_main%5B1%5D.png" alt="Mission and Vision">
+      </div>
+      <div class="card-text">
+        <h3>Our Mission</h3>
+        <p>Promoting peace, unity, and excellence through the universal language of sports.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <img src="data:image/jpeg;base64,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" alt="Values">
+      </div>
+      <div class="card-text">
+        <h3>Our Values</h3>
+        <p>Respect, excellence, and friendship are at the core of everything we do.</p>
+      </div>
+    </div>
+  </section>
+
+ 
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="">Games</a></li>
+          <li><a href="RecordStatic.html">Records</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="athletes.html">Athletes</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Summer Olympics</a></li>
+          <li><a href="#">Winter Olympics</a></li>
+          <li><a href="#">Paralympics</a></li>
+          <li><a href="#">Youth Olympics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect With Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Olympics Website. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="js/index.js"></script>
+</body>
+</html>

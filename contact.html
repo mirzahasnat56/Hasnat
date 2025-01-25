@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Olympics</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f4f4f9, #e8f0ff);
+            color: #333;
+        }
+
+        .active{
+    color: #f5c518;
+    position: relative;
+  }
+  .h{
+text-decoration: underline;
+    color: white;
+    margin: 50px;
+  }
+
+  nav ul li .active::before, nav ul li .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  .h{
+text-decoration: underline;
+    color: white;
+    margin: 50px;
+  }
+
+  nav ul li .active::before, nav ul li .active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffcc00;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+
+  header {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,51,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+a {
+    text-decoration: none;
+    cursor: default;
+    
+    
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+
+  /* Hover Effect */
+  nav ul li a:hover {
+    color: #ffcc00;
+  }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            color: #005cbf;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, button {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #005cbf;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 92, 191, 0.5);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            background: linear-gradient(90deg, #005cbf, #0073e6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #003f8a, #005cbf);
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .contact-info div {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-info div:hover {
+            color: #005cbf;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #005cbf;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .he{
+            color: white;
+            text-decoration: none;
+        }
+
+        .humanity-message {
+            margin: 30px 0;
+            padding: 20px;
+            background: #005cbf;
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .humanity-message {
+                font-size: 1rem;
+            }
+        }
+
+        .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 2px 0;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: rgba(2, 0, 36, 0.95);
+    padding: 20px 0;
+  }
+
+  nav .nav-menu.show {
+    display: flex;
+    z-index: 999;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  /* Animate hamburger menu */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Olympics Website</h1>
+        <div class="menu-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="active" >Home</a></li>
+            <li><a href="athletes.html">Athletes</a></li>
+              <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html" >Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html" >About-Us</a></li>
+            <li><a href="contact.html" >Contact</a></li>
+    
+          </ul>
+        </nav>
+      </header>
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <div class="humanity-message">
+        "Together we thrive, united by humanity and the spirit of sports."
+    </div>
+    <form>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+        <h2>Other Ways to Reach Us</h2>
+        <div><strong>Email:</strong> contact@olympics.org</div>
+        <div><strong>Phone:</strong> +1 234 567 890</div>
+        <div><strong>Address:</strong> Olympic Headquarters, International Olympic Committee, Lausanne, Switzerland</div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Olympics. All rights reserved.</p>
+</footer>
+<script src="js/index.js"></script>
+</body>
+</html>
